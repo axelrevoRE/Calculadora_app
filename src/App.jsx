@@ -42,7 +42,7 @@ function CurrencyField({ label, value, onChange, disabled = false }) {
       <input
         type="text"
         inputMode="decimal"
-        className={\`rounded-xl border p-2 \${disabled ? "bg-gray-100 opacity-70" : ""}\`}
+        className={`rounded-xl border p-2 ${disabled ? "bg-gray-100 opacity-70" : ""}`}
         value={text}
         disabled={disabled}
         onFocus={() => setFocused(true)}
