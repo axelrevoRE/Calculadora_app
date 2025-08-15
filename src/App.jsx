@@ -42,7 +42,7 @@ function CurrencyField({ label, value, onChange, disabled = false }) {
       <input
         type="text"
         inputMode="decimal"
-        className={\`rounded-xl border p-2 \${disabled ? "bg-gray-100 opacity-70" : ""}\`}
+        className={`rounded-xl border p-2 ${disabled ? "bg-gray-100 opacity-70" : ""}`}
         value={text}
         disabled={disabled}
         onFocus={() => setFocused(true)}
@@ -62,11 +62,11 @@ function CurrencyField({ label, value, onChange, disabled = false }) {
 
 function PercentField({ label, valuePct, onChange, readOnly = false }) {
   // valuePct en 0..100 (no fracción)
-  const [text, setText] = useState(\`\${(isFinite(valuePct) ? valuePct : 0).toFixed(2)}%\`);
+  const [text, setText] = useState(`${(isFinite(valuePct) ? valuePct : 0).toFixed(2)}%`);
   const [focused, setFocused] = useState(false);
 
   useEffect(() => {
-    if (!focused) setText(\`\${(isFinite(valuePct) ? valuePct : 0).toFixed(2)}%\`);
+    if (!focused) setText(`${(isFinite(valuePct) ? valuePct : 0).toFixed(2)}%`);
   }, [valuePct, focused]);
 
   return (
@@ -75,7 +75,7 @@ function PercentField({ label, valuePct, onChange, readOnly = false }) {
       <input
         type="text"
         inputMode="decimal"
-        className={\`rounded-xl border p-2 \${readOnly ? "bg-gray-100 opacity-70" : ""}\`}
+        className={`rounded-xl border p-2 ${readOnly ? "bg-gray-100 opacity-70" : ""}`}
         value={text}
         readOnly={readOnly}
         onFocus={() => setFocused(true)}
@@ -87,7 +87,7 @@ function PercentField({ label, valuePct, onChange, readOnly = false }) {
         }}
         onBlur={() => {
           setFocused(false);
-          setText(\`\${(isFinite(valuePct) ? valuePct : 0).toFixed(2)}%\`);
+          setText(`${(isFinite(valuePct) ? valuePct : 0).toFixed(2)}%`);
         }}
       />
     </label>
@@ -195,8 +195,8 @@ export default function App() {
 
   const ToggleModo = ({ value, onChange }) => (
     <div className="inline-flex overflow-hidden rounded-xl border text-xs">
-      <button type="button" className={\`px-3 py-1 \${value === "pct" ? "bg-gray-900 text-white" : "bg-white"}\`} onClick={() => onChange("pct")}>% Porcentajes</button>
-      <button type="button" className={\`px-3 py-1 border-l \${value === "abs" ? "bg-gray-900 text-white" : "bg-white"}\`} onClick={() => onChange("abs")}>$ Valores</button>
+      <button type="button" className={`px-3 py-1 ${value === "pct" ? "bg-gray-900 text-white" : "bg-white"}`} onClick={() => onChange("pct")}>% Porcentajes</button>
+      <button type="button" className={`px-3 py-1 border-l ${value === "abs" ? "bg-gray-900 text-white" : "bg-white"}`} onClick={() => onChange("abs")}>$ Valores</button>
     </div>
   );
 
@@ -287,7 +287,7 @@ export default function App() {
           </div>
 
           {/* Resultados — Tradicional */}
-          <div className={\`rounded-2xl bg-white p-5 shadow-sm \${showResT ? '' : 'hidden'}\`}>
+          <div className={`rounded-2xl bg-white p-5 shadow-sm ${showResT ? '' : 'hidden'}`}>
             <h3 className="mb-4 text-lg font-medium">Resultados — Tradicional</h3>
             <div className="grid gap-3 text-sm">
               <div className="rounded-xl bg-gray-50 p-3">
@@ -369,7 +369,7 @@ export default function App() {
           </div>
 
           {/* Resultados — Personalizado */}
-          <div className={\`rounded-2xl bg-white p-5 shadow-sm \${showResP ? '' : 'hidden'}\`}>
+          <div className={`rounded-2xl bg-white p-5 shadow-sm ${showResP ? '' : 'hidden'}`}>
             <h3 className="mb-4 text-lg font-medium">Resultados — Personalizado</h3>
             <div className="grid gap-3 text-sm">
               <div className="rounded-xl bg-gray-50 p-3">
